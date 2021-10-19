@@ -2,12 +2,10 @@
 echo "Введите ваш возраст: ";
 $age_user = (int) readline();
 
-if (($age_user >0) && ($age_user <100)){
-	film_by_age($age_user);
-}
+if (($age_user >=0) && ($age_user <=100)){
+	film_by_age($age_user);}
 else{
-	echo "Нужно было ввести возраст от 0 до 100";
-}
+	echo "Нужно было ввести возраст от 0 до 100";}
 
 function film_by_age($age_user)
 {
@@ -153,27 +151,15 @@ function film_by_age($age_user)
 			"rating" => 8.6
 		]
 	];
+$movies_len = count( $movies);
+$number=1;
 
-	$movies_len = count($movies);
-
-//foreach ($movies as $item){
-	//print_r($item["age_restriction"] ."\n");
-	//$i=1;
-//if ($age_user > $item["age_restriction"])
-//{
-	//echo $i . ". " . $item["title"] . " " . "(" .$item["release_year"] . ")" . ", " . " " . $item["age_restriction"] . "+. " . "Rating - " . $item["rating"] . "\n";
-//}
-	$number=1;
 for ($i=0; $i<$movies_len; $i++)
 {
-	if ($age_user > $movies[$i]["age_restriction"])
+	if ($age_user >= $movies[$i]["age_restriction"])
 	{
 		echo $number . ". " .  $movies[$i]["title"] . " " . "(" . $movies[$i]["release_year"] . ")" . ", " . " " .  $movies[$i]["age_restriction"] . "+. " . "Rating - " .  $movies[$i]["rating"] . "\n";
 		$number += 1;
 	}
-
-}
-
-
-}
+}}
 ?>
