@@ -1,13 +1,17 @@
 <?php
 echo "Введите ваш возраст: ";
-$age_user = (int) readline();
+$age_user =  readline();
+if (is_numeric($age_user))
+{
+	$age_user = (int)$age_user;
+	get_films_by_age($age_user);
+}
+else
+{
+	echo "Нужно было ввести возраст от 0 до 100";
+}
 
-if (($age_user >=0) && ($age_user <=100)){
-	film_by_age($age_user);}
-else{
-	echo "Нужно было ввести возраст от 0 до 100";}
-
-function film_by_age($age_user)
+function get_films_by_age($age_user)
 {
 	$movies = [
 		[
@@ -151,10 +155,10 @@ function film_by_age($age_user)
 			"rating" => 8.6
 		]
 	];
-$movies_len = count( $movies);
+$movies_lenght = count( $movies);
 $number=1;
 
-for ($i=0; $i<$movies_len; $i++)
+for ($i=0; $i<$movies_lenght; $i++)
 {
 	if ($age_user >= $movies[$i]["age_restriction"])
 	{
