@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap');
 
-
 *{
-	padding:0px;
-	margin:0px;
+	padding:0;
+	margin:0;
 }
 
 .wrapper{
 	display:flex;
 	overflow:hidden;
 	height:100vh;
-
 }
 
 .sidebar{
@@ -29,7 +27,6 @@
 	height: 88px;
 	background: #FFFFFF;
 	box-shadow: 4px 4px 4px 1px #e9e9e9;
-	position: relative;
 }
 
 .content{
@@ -44,9 +41,13 @@
 	padding:0;
 }
 
-.menu-item{
-	display:block;
+.menu-item {
+	display: block;
 	border-bottom: 1px solid rgba(242, 242, 242, 0.1);
+}
+
+.menu-item:hover,.menu-item:active{
+	background: rgba(255, 255, 255, 0.05);
 }
 
 .menu-item a{
@@ -59,7 +60,6 @@
 	line-height:22px;
 	align-items: center;
 	text-transform: uppercase;
-	color:#FFFFFF;
 	padding: 0 15px;
 	color: #B7B7B7;
 }
@@ -69,25 +69,14 @@
 }
 
 .logo-bitflix{
-	display:block;
-	margin-top:28px;
+	display:flex;
+	margin-top:27px;
 	padding: 0 81px;
 	height: 140px;
 }
 
-#ellips{
-	position: absolute;
-	top: 113px;
-	margin: 0 81px;
-	width: 223px;
-	height: 79px;
-	background: #383838;
-	border-radius: 251px / 28px;
-
-}
-
 .logo-bitflix a{
-	display:flex;
+	display:block;
 	text-transform:uppercase;
 	text-decoration: none;
 	font-family: 'Bebas Neue', cursive;
@@ -98,6 +87,7 @@
 }
 
 .div-search{
+	width:100%;
 	display: inline-flex;
 	margin: 12px 51px 21px 43px;
 	position:relative;
@@ -112,7 +102,9 @@
 	padding-bottom:8px;
 }
 
-
+input:focus {
+	outline: none;
+}
 
 ::placeholder{
 	color:#c4c4c4;
@@ -135,7 +127,7 @@
 	height:40px;
 	background:#e7a04e;
 	color:#ffffff;
-	font-family: Open Sans;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 40px;
@@ -144,7 +136,8 @@
 	border-radius:7px;
 	border:none;
 	margin-top:15px;
-	margin-left:14px;
+	margin-left:2%;
+	margin-right:2%;
 	cursor:pointer;
 }
 
@@ -153,7 +146,7 @@
 	height:40px;
 	background:#4EE7B0;
 	color:#ffffff;
-	font-family: Open Sans;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 40px;
@@ -162,8 +155,55 @@
 	border-radius:7px;
 	border:none;
 	margin-top:15px;
-	margin-left:155px;
+	margin-right:1%;
 	cursor:pointer;
+}
+
+.button-detail{
+	position:absolute;
+	width:221px;
+	height:56px;
+	background:#4EE7B0;
+	color:#ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 56px;
+	text-align: center;
+	text-transform:uppercase;
+	border-radius:7px;
+	border:none;
+	cursor:pointer;
+	margin:291px 75px;
+	opacity:0;
+	z-index: 300;
+}
+
+.div-overlap{
+	display:block;
+	position: absolute;
+	width:370px;
+	height:700px;
+	border-radius: 20px;
+	z-index: 200;
+}
+
+.div-black{
+	display:block;
+	background:black;
+	width:370px;
+	height:700px;
+	border-radius: 20px;
+	z-index: 200;
+	opacity:0;
+}
+
+.div-overlap:hover .div-black{
+	opacity:0.7;
+}
+
+.div-overlap:hover .button-detail{
+	opacity:1;
 }
 
 .movie-list{
@@ -177,6 +217,7 @@
 
 .movie-list--item{
 	display:flex;
+	position: relative;
 	flex-direction: column;
 	width:370px;
 	height:700px;
@@ -191,7 +232,7 @@
 	width:100%;
 	height:430px;
 	border-radius:20px 20px 0 0;
-	background-image:url(images_css/img/Bond.png);
+	background-repeat: no-repeat;
 	background-size: cover;
 }
 
@@ -202,6 +243,7 @@
 	font-size: 22px;
 	margin: 12px 20px 0 20px;
 	color: #333333;
+	min-height: 36px;
 }
 
 .movie-list--item-subtitle{
@@ -213,11 +255,12 @@
 	color: #999999;
 	border-bottom:1px solid #F2F2F2;
 	padding-bottom:17px;
+	min-height: 25px;
 }
 
 .movie-list--item-description{
 	display:flex;
-	min-height: ;
+	min-height: 99px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -233,6 +276,7 @@
 	justify-content: space-evenly;
 	position:relative;
 	margin:0 20px 0 20px;
+	z-index: 90;
 }
 
 .movie-list--item-time{
@@ -260,4 +304,3 @@
 	background-image:url(images_css/icons/clock1.png);
 	left:0;
 }
-
